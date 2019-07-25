@@ -22,7 +22,6 @@ class LoL():
             else:
                 j += 1
                 rank = []
-                json_obj[j]['queueType']
         return rank_format
 
     def getCurrentMatchSummoners(self, ID):
