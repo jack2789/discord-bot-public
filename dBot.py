@@ -72,8 +72,7 @@ async def shower(ctx):
 
     await ctx.send("""
     ```
-{}\n       -{}
-    ```
-    """.format(result["title"],result["author"]))
+{}\n       -{}```
+""".format(result["title"],result["author"]))
 
 bot.run(str(os.environ.get('TOKEN')))
