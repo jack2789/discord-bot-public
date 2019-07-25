@@ -4,6 +4,7 @@ import LeagueFunctions
 from io import StringIO
 import io
 import sys
+import os
 
 prefix = '#'
 bot = commands.Bot(command_prefix=prefix)
