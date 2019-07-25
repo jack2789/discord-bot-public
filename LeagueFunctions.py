@@ -1,5 +1,4 @@
 import requests
-import os
 
 class LoL():
     def findSummonerID(self, summoner):
