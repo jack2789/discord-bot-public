@@ -60,9 +60,7 @@ async def game(ctx, *,summoner):
     await ctx.send("""
 ```
 Team1:
-{} \nTeam2:\n{}
-```
-""".format(a,b))
+{} \nTeam2:\n{}```""".format(a,b))
 
 @bot.command()
 async def shower(ctx):
