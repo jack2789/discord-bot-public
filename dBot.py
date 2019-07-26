@@ -21,8 +21,8 @@ def printer(team1,team1Champs,team1Ranks):
     result_string = result.getvalue()
     return result_string
 
-def displayembed(ctx,Title):
-    embed = discord.Embed(title="Title", colour = discord.Color.blue())
+def displayembed(Title):
+    embed = discord.Embed(title=Title, colour = discord.Color.blue())
     return embed
 
 @bot.event
@@ -61,7 +61,7 @@ async def game(ctx, *,summoner):
 
     a = printer(team1,team1Champs,team1Ranks)
     b = printer(team2,team2Champs,team2Ranks)
-    embed = displayembed(Live Match Data)
+    embed = displayembed('Live Match Data')
     embed.add_field(name = 'Blue Side', value= a)
     embed.add_field(name = 'Red Side', value = b, inline = False)
     
