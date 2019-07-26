@@ -71,10 +71,11 @@ async def game(ctx, *,summoner):
     embed.add_field(name = 'Champion', value = a2)
     embed.add_field(name = 'Rank', value = a3)
     
+    embed.add_field(name = '', value = '', inline = False)
     
     embed.add_field(name = 'Red Team', value = b1, inline = False)
-    embed.add_field(name = 'Champion', value = b2)
-    embed.add_field(name = 'Rank', value = b3)
+    embed.add_field(name = 'Champion', value = b2, inline = True)
+    embed.add_field(name = 'Rank', value = b3, inline = True)
     
     embed.set_footer(text=ctx.author.name, icon_url = ctx.author.avatar_url)
     
