@@ -9,13 +9,13 @@ import os
 prefix = '#'
 bot = commands.Bot(command_prefix=prefix)
 
-def printer(team1,team1Champs,team1Ranks):
+def printer(team1):
     old_stdout = sys.stdout
     result = StringIO()
     sys.stdout = result
 
-    for t1, t2, t3 in zip(team1, team1Champs, team1Ranks):
-        print('%-20s %-14s %s' % (t1, t2, t3))
+    for t1 in zip(team1):
+        print('%-s' % t1)
 
     sys.stdout = old_stdout
     result_string = result.getvalue()
@@ -59,11 +59,25 @@ async def game(ctx, *,summoner):
     team2Champs = teamSet[3]
     team2Ranks = teamSet[5]
 
-    a = printer(team1,team1Champs,team1Ranks)
-    b = printer(team2,team2Champs,team2Ranks)
+    a1 = printer(team1)
+    a2 = printer(team1Champs)
+    a3 = printer(team1Ranks)
+    b1 = printer(team2)
+    b2 = printer(team2Champs)
+    b3 = printer(team2Ranks)
+    
     embed = displayembed('Live Match Data')
-    embed.add_field(name = 'Blue Side', value= a)
-    embed.add_field(name = 'Red Side', value = b, inline = False)
+    embed.add_field(name = 'Blue Team', value= a1)
+    embed.add_field(name = 'Champion', value = a2)
+    embed.add_field(name = 'Rank', value = a3)
+    
+    
+    embed.add_field(name = 'Red Team', value = b1, inline = False)
+    embed.add_field(name = 'Champion', value = b2)
+    embed.add_field(name = 'Rank', value = b3)
+    
+    embed.set_footer(text=ctx.author.name, icon_url = ctx.author.avatar_url)
+    
     
     await ctx.send(embed=embed)
 
