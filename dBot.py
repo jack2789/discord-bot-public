@@ -69,9 +69,7 @@ async def game(ctx, *,summoner):
     embed = displayembed('Live Match Data')
     embed.add_field(name = 'Blue Team', value= a1)
     embed.add_field(name = 'Champion', value = a2)
-    embed.add_field(name = 'Rank', value = a3)
-     
-    embed.add_field(name = ' ', value = ' ', inline = False)
+    embed.add_field(name = 'Rank', value = a3 + "\n\u200b")
     
     embed.add_field(name = 'Red Team', value = b1, inline = False)
     embed.add_field(name = 'Champion', value = b2, inline = True)
