@@ -5,7 +5,10 @@ from io import StringIO
 import io
 import sys
 import os
+import datetime
 
+
+currentDT = datetime.datetime.now()
 prefix = '#'
 bot = commands.Bot(command_prefix=prefix)
 
@@ -75,7 +78,7 @@ async def game(ctx, *,summoner):
     embed.add_field(name = 'Champion', value = b2, inline = True)
     embed.add_field(name = 'Rank', value = b3, inline = True)
     
-    embed.set_footer(text=ctx.author.name, icon_url = ctx.author.avatar_url)
+    embed.set_footer(text=ctx.author.name + ' | ' + currentDT.strftime("%a, %b %d, %Y") + ' at ' + currentDT.strftime("%I:%M %p"), icon_url = ctx.author.avatar_url)
     
     
     await ctx.send(embed=embed)
