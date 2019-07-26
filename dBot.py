@@ -69,7 +69,7 @@ async def game(ctx, *,summoner):
     b2 = printer(team2Champs)
     b3 = printer(team2Ranks)
     
-    embed = displayembed('Live Match Data')
+    embed = displayembed('Live Match Data for ' + summoner=summoner.replace("_"," "))
     embed.add_field(name = 'Blue Team', value= a1, inline = True)
     embed.add_field(name = 'Champion', value = a2, inline = True)
     embed.add_field(name = 'Rank', value = a3, inline = True)
