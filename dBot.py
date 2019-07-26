@@ -8,6 +8,7 @@ import os
 
 prefix = '#'
 bot = commands.Bot(command_prefix=prefix)
+
 def printer(team1,team1Champs,team1Ranks):
     old_stdout = sys.stdout
     result = StringIO()
@@ -19,6 +20,10 @@ def printer(team1,team1Champs,team1Ranks):
     sys.stdout = old_stdout
     result_string = result.getvalue()
     return result_string
+
+def displayembed(ctx,Title):
+    embed = discord.Embed(title="Title", colour = discord.Color.blue())
+    return embed
 
 @bot.event
 async def on_ready():
@@ -56,11 +61,11 @@ async def game(ctx, *,summoner):
 
     a = printer(team1,team1Champs,team1Ranks)
     b = printer(team2,team2Champs,team2Ranks)
-
-    await ctx.send("""
-```
-Team1:
-{} \nTeam2:\n{}```""".format(a,b))
+    embed = displayembed(Live Match Data)
+    embed.add_field(name = 'Blue Side', value= a)
+    embed.add_field(name = 'Red Side', value = b, inline = False)
+    
+    await ctx.send(embed=embed)
 
 @bot.command()
 async def shower(ctx):
@@ -74,5 +79,6 @@ async def shower(ctx):
     ```
 {}\n       -{}```
 """.format(result["title"],result["author"]))
+
 
 bot.run(str(os.environ.get('TOKEN')))
