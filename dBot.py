@@ -27,7 +27,7 @@ def displayembed(Title):
     embed = discord.Embed(title=Title, colour = discord.Color.blue())
     return embed
 
-@bot.command
+@bot.command()
 async def creepy(ctx):
     a = getRandomCreepy(creepy)
     await ctx.send(a)
