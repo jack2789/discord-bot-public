@@ -28,7 +28,7 @@ def displayembed(Title):
     return embed
 
 @bot.command
-async def creepy():
+async def creepy(ctx):
     a = getRandomCreepy(creepy)
     await ctx.send(a)
     
