@@ -6,6 +6,7 @@ import io
 import sys
 import os
 import datetime
+import creepy
 
 prefix = '#'
 bot = commands.Bot(command_prefix=prefix)
@@ -26,6 +27,11 @@ def displayembed(Title):
     embed = discord.Embed(title=Title, colour = discord.Color.blue())
     return embed
 
+@bot.command
+async def creepy():
+    a = getRandomCreepy(creepy)
+    await ctx.send(a)
+    
 @bot.event
 async def on_ready():
     print("Ready when you are xc")
