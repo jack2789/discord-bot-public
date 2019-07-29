@@ -7,6 +7,8 @@ import sys
 import os
 import datetime
 import creepy
+from creepy import creepyList
+
 
 prefix = '#'
 bot = commands.Bot(command_prefix=prefix)
@@ -29,7 +31,7 @@ def displayembed(Title):
 
 @bot.command()
 async def creepy(ctx):
-    a = creepy.getRandomCreepy(creepy)
+    a = creepy.getRandomCreepy(creepyList)
     await ctx.send(a)
     
 @bot.event
