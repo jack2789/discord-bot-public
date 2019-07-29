@@ -7,7 +7,9 @@ import sys
 import os
 import datetime
 import creepyy
+import asyncio
 from creepyy import creepyList
+import requests
 
 
 prefix = '#'
@@ -28,6 +30,23 @@ def printer(team1):
 def displayembed(Title):
     embed = discord.Embed(title=Title, colour = discord.Color.blue())
     return embed
+
+async def background():
+    await bot.wait_until_ready()
+    counter = 0
+    randnum = random.randint(0, 99)
+    response = requests.get('https://www.reddit.com/r/showerthoughts/top.json?sort=top&t=week&limit=100', headers = {'User-Agent': 'showerbot'})
+    result = response.json()
+    result = result["data"]["children"][randnum]["data"]
+    
+    while not client.is_closed:
+        counter +=1
+        await ctx.send("""
+    ```
+{}\n       -{}```
+""".format(result["title"],result["author"]))
+        await asyncio.sleep(3600)
+
 
 @bot.command()
 async def creepy(ctx):
@@ -93,7 +112,6 @@ async def game(ctx, *,summoner):
 
 @bot.command()
 async def shower(ctx):
-    import random, requests
     randnum = random.randint(0, 99)
     response = requests.get('https://www.reddit.com/r/showerthoughts/top.json?sort=top&t=week&limit=100', headers = {'User-Agent': 'showerbot'})
     result = response.json()
