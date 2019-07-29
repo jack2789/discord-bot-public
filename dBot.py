@@ -34,6 +34,8 @@ def displayembed(Title):
 async def background():
     await bot.wait_until_ready()
     counter = 0
+    channel = discord.Object(id='General')
+    
     randnum = random.randint(0, 99)
     response = requests.get('https://www.reddit.com/r/showerthoughts/top.json?sort=top&t=week&limit=100', headers = {'User-Agent': 'showerbot'})
     result = response.json()
@@ -41,7 +43,7 @@ async def background():
     
     while not client.is_closed:
         counter +=1
-        await ctx.send("""
+        await bot.send_message(channel,"""
     ```
 {}\n       -{}```
 """.format(result["title"],result["author"]))
@@ -121,6 +123,6 @@ async def shower(ctx):
     ```
 {}\n       -{}```
 """.format(result["title"],result["author"]))
-
-
+    
+bot.loop.create_task(background())
 bot.run(str(os.environ.get('TOKEN')))
