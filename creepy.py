@@ -1,6 +1,6 @@
 import random
 
-creepy = ['You have a very pretty mouth.',
+creepyList = ['You have a very pretty mouth.',
           'Your toes are the perfect length.',
           'You have your mother\'s legs',
           'Oh youre Filipina? That\'s right, I could tell by your beautiful Asian lips!',
@@ -18,6 +18,6 @@ creepy = ['You have a very pretty mouth.',
           ''
           ]
 
-def getRandomCreepy(creepy):
-    index = random.randint(0,len(creepy)-1)
-    return creepy[index]
+def getRandomCreepy(creepyList):
+    index = random.randint(0,len(creepyList)-1)
+    return creepyList[index]
