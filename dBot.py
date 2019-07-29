@@ -6,8 +6,8 @@ import io
 import sys
 import os
 import datetime
-import creepy
-from creepy import creepyList
+import creepyy
+from creepyy import creepyList
 
 
 prefix = '#'
@@ -31,7 +31,7 @@ def displayembed(Title):
 
 @bot.command()
 async def creepy(ctx):
-    a = creepy.getRandomCreepy(creepyList)
+    a = creepyy.getRandomCreepy(creepyList)
     await ctx.send(a)
     
 @bot.event
