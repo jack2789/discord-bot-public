@@ -42,7 +42,7 @@ async def background():
     result = response.json()
     result = result["data"]["children"][randnum]["data"]
     
-    while not client.is_closed:
+    while not bot.is_closed:
         counter +=1
         await bot.send_message(channel,"""
     ```
