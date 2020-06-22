@@ -127,3 +127,13 @@ async def shower(ctx):
     
 bot.loop.create_task(background())
 bot.run(str(os.environ.get('TOKEN')))
+
+@bot.command()
+async def coin(ctx):
+    randnum = random.randint(0,1)
+    if randnum == 0
+        await ctx.send("Heads")
+    else 
+        await ctx.send("Tails")
+        
+        
